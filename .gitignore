@@ -1,0 +1,19 @@
+# Arquivos de dados de grafos (podem ultrapassar 100 MB e ser rejeitados pelo GitHub)
+*.txt
+
+# Objetos, dependencias, binarios e executaveis
+*.o
+*.d
+*.out
+*.exe
+programa
+tests/teste_referencia
+
+# Pastas de resultados e saidas geradas
+resultados/
+saida/
+output/
+
+# Temporarios de sistema e editores
+.DS_Store
+Thumbs.db

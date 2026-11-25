@@ -1,0 +1,74 @@
+Escolha a representacao do grafo (1 - Lista de Adjacencia, 2 - Matriz de Adjacencia): O grafo e direcionado? (1 - Sim, 0 - Nao): Digite o nome do arquivo do grafo: 
+=== MENU DE OPCOES ===
+1. Salvar informacoes basicas do grafo
+2. Realizar Busca em Largura (BFS)
+3. Realizar Busca em Profundidade (DFS)
+4. Calcular distancia entre dois vertices (sem pesos)
+5. Calcular diametro do grafo (sem pesos)
+6. Encontrar componentes conexas
+7. Calcular memoria da representacao
+8. Benchmark de tempo BFS (100 vertices)
+9. Benchmark de tempo DFS (100 vertices)
+10. Caminho Minimo (Dijkstra - Todos os destinos a partir de uma origem)
+11. Caminho Minimo (Dijkstra - Entre dois vertices especificos)
+12. Caminho Minimo (Dijkstra - Destinos {10, 20, 30, 40, 50} a partir de 1)
+13. Caminho Minimo (Dijkstra SEM HEAP - Destinos {10, 20, 30, 40, 50} a partir de 1)
+14. Benchmark Dijkstra (Com Heap vs Sem Heap)
+--- TRABALHO PRATICO 3 (BELLMAN-FORD & FLOYD-WARSHALL) ---
+15. [TP3 - Caso 1] Bellman-Ford: origens {10, 20, 30} -> destino 100
+16. [TP3 - Caso 2] Floyd-Warshall: pares entre {10, 20, 30, 40, 50}
+17. [TP3 - Caso 3] Tempo medio (10x): Bellman-Ford vs Floyd-Warshall (destino 100)
+18. [TP3 - Caso 4] Tempo medio (10x): Todos os pares (Bellman-Ford vs Floyd-Warshall)
+19. [TP3 - COMPLETO] Executar todos os Estudos de Caso (1 a 4) em sequencia
+0. Sair
+Escolha uma opcao: 
+=== ESTUDO DE CASO 1: BELLMAN-FORD (Origens -> 100) ===
+Status: Concluido sem ciclo negativo (CSR: 32.952621 s | Bellman-Ford: 14.004204 s)
+
+Origem 10 -> Destino 100: 37.85 | Caminho: 10 -> 8226464 -> 8398644 -> 9402245 -> 9739987 -> 937849 -> 597353 -> 2241769 -> 3118871 -> 5374339 -> 319782 -> 1409550 -> 8063679 -> 4187984 -> 8322144 -> 7915275 -> 1116679 -> 8592040 -> 9168609 -> 1011134 -> 617312 -> 4484876 -> 100
+Origem 20 -> Destino 100: 42.63 | Caminho: 20 -> 8885874 -> 9172974 -> 190993 -> 901806 -> 2122291 -> 7949832 -> 4297068 -> 9799215 -> 4313 -> 6690018 -> 2041796 -> 8483311 -> 4418352 -> 4580063 -> 8048493 -> 5653904 -> 8592040 -> 9168609 -> 1011134 -> 617312 -> 4484876 -> 100
+Origem 30 -> Destino 100: 37.86 | Caminho: 30 -> 792746 -> 8357921 -> 3360862 -> 7413679 -> 787170 -> 3097792 -> 4607918 -> 7198627 -> 9170278 -> 9726068 -> 2117603 -> 4473017 -> 7399377 -> 1303598 -> 5096941 -> 9492473 -> 2243408 -> 3162255 -> 9430472 -> 706910 -> 7918231 -> 9767508 -> 600132 -> 2212225 -> 6106658 -> 9336327 -> 69858 -> 617312 -> 4484876 -> 100
+Resultados salvos em: resultados/grafo_W_5_tp3_caso1_bellman_ford.txt
+
+=== ESTUDO DE CASO 2: FLOYD-WARSHALL (Pares entre {10, 20, 30, 40, 50}) ===
+Calibrando o Floyd-Warshall (24 passos k em matriz 8000 x 8000)...
+  0.02062 s por passo k  (3.10 G atualizacoes/s)
+Status: Nao executado (V = 10000000 excede MAX_VERTICES_FLOYD = 5000; requer 745058.06 GB para 2 matrizes = 8*V^2 bytes).
+Tempo estimado (1 rodada, extrapolacao): ~322174065753.23 s (89492796.04 h)
+
+=== ESTUDO DE CASO 3: TEMPO MEDIO (10 EXECUCOES) - DESTINO 100 ===
+Bellman-Ford (10 execucoes -> destino 100): Media apenas BF = 14.026400 s | Media transposicao CSR = 32.697183 s | Media total = 46.723583 s [Sem ciclo negativo]
+Floyd-Warshall: Nao executado (excede MAX_VERTICES_FLOYD; requer 745058.06 GB = 8*V^2 bytes).
+Resultados salvos em: resultados/grafo_W_5_tp3_caso3_tempo_destino100.txt
+
+=== ESTUDO DE CASO 4: TODOS OS PARES (10 EXECUCOES) ===
+Status: Nao executado (V = 10000000 excede o limite pratico MAX_VERTICES_CASO4 = 5000).
+Memoria necessaria: 1117587.09 GB de pico (3 matrizes = 12*V^2 bytes; 1490116.12 GB se 4 matrizes = 16*V^2 bytes).
+Estimativa de tempo por extrapolacao empirica nesta maquina (NAO e medicao direta do Caso 4 completo):
+  - Floyd-Warshall (extrapolacao cubica): ~322174065753.23 s (89492796.04 h) por rodada | ~3221740657532.26 s (894927960.43 h) em 10 rodadas
+  - Bellman-Ford todos os pares (10 origens reais x V): ~129701676.33 s (36028.24 h) por rodada | ~1297016763.29 s (360282.43 h) em 10 rodadas
+Resultados salvos em: resultados/grafo_W_5_tp3_caso4_todos_pares.txt
+
+=== MENU DE OPCOES ===
+1. Salvar informacoes basicas do grafo
+2. Realizar Busca em Largura (BFS)
+3. Realizar Busca em Profundidade (DFS)
+4. Calcular distancia entre dois vertices (sem pesos)
+5. Calcular diametro do grafo (sem pesos)
+6. Encontrar componentes conexas
+7. Calcular memoria da representacao
+8. Benchmark de tempo BFS (100 vertices)
+9. Benchmark de tempo DFS (100 vertices)
+10. Caminho Minimo (Dijkstra - Todos os destinos a partir de uma origem)
+11. Caminho Minimo (Dijkstra - Entre dois vertices especificos)
+12. Caminho Minimo (Dijkstra - Destinos {10, 20, 30, 40, 50} a partir de 1)
+13. Caminho Minimo (Dijkstra SEM HEAP - Destinos {10, 20, 30, 40, 50} a partir de 1)
+14. Benchmark Dijkstra (Com Heap vs Sem Heap)
+--- TRABALHO PRATICO 3 (BELLMAN-FORD & FLOYD-WARSHALL) ---
+15. [TP3 - Caso 1] Bellman-Ford: origens {10, 20, 30} -> destino 100
+16. [TP3 - Caso 2] Floyd-Warshall: pares entre {10, 20, 30, 40, 50}
+17. [TP3 - Caso 3] Tempo medio (10x): Bellman-Ford vs Floyd-Warshall (destino 100)
+18. [TP3 - Caso 4] Tempo medio (10x): Todos os pares (Bellman-Ford vs Floyd-Warshall)
+19. [TP3 - COMPLETO] Executar todos os Estudos de Caso (1 a 4) em sequencia
+0. Sair
+Escolha uma opcao: Saindo...
